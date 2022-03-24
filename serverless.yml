@@ -1,0 +1,17 @@
+service: aws-lambda-api-service
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: deploy-to-aws
+  stage: dev
+  region: us-east-2
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: hello-world
+          method: get
